@@ -26,7 +26,10 @@ class DetallePage extends StatelessWidget {
                   color: t.hecha ? Colors.green : Colors.grey,
                 ),
                 const SizedBox(height: 16),
-                Text(t.titulo),
+                Text(
+                  t.titulo,
+                  style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                ),
                 const SizedBox(height: 8),
                 Text('${t.asignatura} · ${t.fecha}'),
                 const SizedBox(height: 16),

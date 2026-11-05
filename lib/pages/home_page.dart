@@ -26,6 +26,10 @@ class HomePage extends StatelessWidget {
             itemBuilder: (context, i) {
               final t = tareas[i];
               return Card(
+                color: Colors.indigo.shade50,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
+                ),
                 child: ListTile(
                   leading: Icon(t.hecha ? Icons.check_circle : Icons.assignment),
                   title: Text(t.titulo),

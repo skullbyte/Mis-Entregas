@@ -19,7 +19,9 @@ class HomePage extends StatelessWidget {
       body: ListenableBuilder(
         listenable: tareasState,
         builder: (context, _) {
-          final tareas = tareasState.tareas;
+          final tareas = tareasState.ocultarHechas
+              ? tareasState.tareas.where((t) => !t.hecha).toList()
+              : tareasState.tareas;
           return ListView.builder(
             padding: const EdgeInsets.all(12),
             itemCount: tareas.length,

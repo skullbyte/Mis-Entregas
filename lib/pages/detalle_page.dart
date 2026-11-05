@@ -41,7 +41,16 @@ class DetallePage extends StatelessWidget {
                     style: FilledButton.styleFrom(
                       backgroundColor: t.hecha ? Colors.green : null,
                     ),
-                    onPressed: () => tareasState.alternarHecha(t),
+                    onPressed: () {
+                      tareasState.alternarHecha(t);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            t.hecha ? 'Tarea marcada como hecha' : 'Tarea marcada como pendiente',
+                          ),
+                        ),
+                      );
+                    },
                     icon: Icon(t.hecha ? Icons.undo : Icons.check),
                     label: Text(t.hecha ? 'Hecha (pulsa para deshacer)' : 'Marcar como hecha'),
                   ),

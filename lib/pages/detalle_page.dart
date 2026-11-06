@@ -41,7 +41,7 @@ class DetallePage extends StatelessWidget {
                           const SizedBox(height: 16),
                           Text(
                             t.titulo,
-                            style: Theme.of(context).textTheme.titleMedium,
+                            style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 12),
                           _Datos(tarea: t),

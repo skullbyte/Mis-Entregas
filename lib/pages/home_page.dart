@@ -170,6 +170,10 @@ class _TareaCard extends StatelessWidget {
         );
       },
       child: Card(
+        color: Colors.orange.shade50,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+        ),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () {

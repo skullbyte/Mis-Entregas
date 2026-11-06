@@ -26,10 +26,7 @@ class DetallePage extends StatelessWidget {
                   color: t.hecha ? Colors.green : Colors.grey,
                 ),
                 const SizedBox(height: 16),
-                Text(
-                  t.titulo,
-                  style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                ),
+                Text(t.titulo),
                 const SizedBox(height: 8),
                 Text('${t.asignatura} · ${t.fecha}'),
                 const SizedBox(height: 16),
@@ -41,16 +38,7 @@ class DetallePage extends StatelessWidget {
                     style: FilledButton.styleFrom(
                       backgroundColor: t.hecha ? Colors.green : null,
                     ),
-                    onPressed: () {
-                      tareasState.alternarHecha(t);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            t.hecha ? 'Tarea marcada como hecha' : 'Tarea marcada como pendiente',
-                          ),
-                        ),
-                      );
-                    },
+                    onPressed: () => tareasState.alternarHecha(t),
                     icon: Icon(t.hecha ? Icons.undo : Icons.check),
                     label: Text(t.hecha ? 'Hecha (pulsa para deshacer)' : 'Marcar como hecha'),
                   ),

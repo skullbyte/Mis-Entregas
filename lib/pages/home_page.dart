@@ -19,19 +19,13 @@ class HomePage extends StatelessWidget {
       body: ListenableBuilder(
         listenable: tareasState,
         builder: (context, _) {
-          final tareas = tareasState.ocultarHechas
-              ? tareasState.tareas.where((t) => !t.hecha).toList()
-              : tareasState.tareas;
+          final tareas = tareasState.tareas;
           return ListView.builder(
             padding: const EdgeInsets.all(12),
             itemCount: tareas.length,
             itemBuilder: (context, i) {
               final t = tareas[i];
               return Card(
-                color: Colors.indigo.shade50,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
-                ),
                 child: ListTile(
                   leading: Icon(t.hecha ? Icons.check_circle : Icons.assignment),
                   title: Text(t.titulo),

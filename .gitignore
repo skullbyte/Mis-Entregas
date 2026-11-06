@@ -54,3 +54,6 @@ codemap.md
 justfile
 docs/PROGRESS.md
 .mcp.json
+
+# Informes de compilación de Android
+android/build/

@@ -9,6 +9,26 @@
             "deps": [
                 "lib/pages/home_page.dart"
             ]
+        },
+        {
+            "x": 972.0,
+            "y": 148.0,
+            "w": 393.0,
+            "h": 808.0,
+            "widget": "const DetallePage()",
+            "deps": [
+                "lib/pages/detalle_page.dart"
+            ]
+        },
+        {
+            "x": 1425.0,
+            "y": 148.0,
+            "w": 393.0,
+            "h": 808.0,
+            "widget": "const AnadirPage()",
+            "deps": [
+                "lib/pages/anadir_page.dart"
+            ]
         }
     ]
 }

@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:nowa_runtime/nowa_runtime.dart';
 import 'package:mis_entregas/globals/tareas_state.dart';
 import 'package:mis_entregas/models/tarea.dart';
 
+@NowaGenerated()
 class AnadirPage extends StatefulWidget {
+  @NowaGenerated({'loader': 'auto-constructor'})
   const AnadirPage({super.key});
 
   @override
-  State<AnadirPage> createState() => _AnadirPageState();
+  State<AnadirPage> createState() {
+    return _AnadirPageState();
+  }
 }
 
+@NowaGenerated()
 class _AnadirPageState extends State<AnadirPage> {
   final _formulario = GlobalKey<FormState>();
   final _titulo = TextEditingController();

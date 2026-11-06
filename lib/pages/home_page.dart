@@ -5,58 +5,21 @@ import 'package:mis_entregas/globals/tareas_state.dart';
 import 'package:mis_entregas/models/tarea.dart';
 
 @NowaGenerated()
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   @NowaGenerated({'loader': 'auto-constructor'})
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Mis entregas')),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () => context.push('/anadir'),
-        icon: const Icon(Icons.add),
-        label: const Text('Nueva tarea'),
-      ),
-      body: ListenableBuilder(
-        listenable: tareasState,
-        builder: (context, _) {
-          final tareas = tareasState.ocultarHechas
-              ? tareasState.conBusqueda.where((t) => !t.hecha).toList()
-              : tareasState.conBusqueda;
-          return Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 640),
-              child: Column(
-                children: [
-                  _Resumen(
-                    hechas: tareasState.hechas,
-                    total: tareasState.tareas.length,
-                  ),
-                  _Filtros(ocultar: tareasState.ocultarHechas),
-                  Expanded(
-                    child: tareas.isEmpty
-                        ? const _Vacio()
-                        : ListView.builder(
-                            padding: const EdgeInsets.fromLTRB(16, 4, 16, 96),
-                            itemCount: tareas.length,
-                            itemBuilder: (context, i) =>
-                                _TareaCard(tarea: tareas[i]),
-                          ),
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
-      ),
-    );
+  State<HomePage> createState() {
+    return _HomePageState();
   }
 }
 
 /// Tarjeta de arriba: cuántas tareas están hechas y una barra de progreso.
+@NowaGenerated()
 class _Resumen extends StatelessWidget {
-  const _Resumen({required this.hechas, required this.total});
+  @NowaGenerated({'loader': 'auto-constructor'})
+  const _Resumen({required this.hechas, required this.total, super.key});
 
   final int hechas;
   final int total;
@@ -75,7 +38,7 @@ class _Resumen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '$hechas de $total entregas hechas',
+            '${hechas} de ${total} entregas hechas',
             style: TextStyle(
               color: color.onPrimary,
               fontSize: 18,
@@ -99,8 +62,10 @@ class _Resumen extends StatelessWidget {
 }
 
 /// Buscador por título e interruptor para ocultar las tareas hechas.
+@NowaGenerated()
 class _Filtros extends StatelessWidget {
-  const _Filtros({required this.ocultar});
+  @NowaGenerated({'loader': 'auto-constructor'})
+  const _Filtros({required this.ocultar, super.key});
 
   final bool ocultar;
 
@@ -110,20 +75,6 @@ class _Filtros extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: [
-          TextField(
-            onChanged: tareasState.setBusqueda,
-            decoration: InputDecoration(
-              hintText: 'Buscar tarea',
-              prefixIcon: const Icon(Icons.search),
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: const EdgeInsets.symmetric(vertical: 12),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(28),
-                borderSide: BorderSide.none,
-              ),
-            ),
-          ),
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
             title: const Text('Ocultar las hechas'),
@@ -136,8 +87,10 @@ class _Filtros extends StatelessWidget {
   }
 }
 
+@NowaGenerated()
 class _TareaCard extends StatelessWidget {
-  const _TareaCard({required this.tarea});
+  @NowaGenerated({'loader': 'auto-constructor'})
+  const _TareaCard({required this.tarea, super.key});
 
   final Tarea tarea;
 
@@ -171,9 +124,7 @@ class _TareaCard extends StatelessWidget {
       },
       child: Card(
         color: Colors.orange.shade50,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(24),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         clipBehavior: Clip.antiAlias,
         child: InkWell(
           onTap: () {
@@ -231,8 +182,10 @@ class _TareaCard extends StatelessWidget {
   }
 }
 
+@NowaGenerated()
 class _Etiqueta extends StatelessWidget {
-  const _Etiqueta({required this.texto, required this.color});
+  @NowaGenerated({'loader': 'auto-constructor'})
+  const _Etiqueta({required this.texto, required this.color, super.key});
 
   final String texto;
   final Color color;
@@ -257,8 +210,10 @@ class _Etiqueta extends StatelessWidget {
   }
 }
 
+@NowaGenerated()
 class _Vacio extends StatelessWidget {
-  const _Vacio();
+  @NowaGenerated({'loader': 'auto-constructor'})
+  const _Vacio({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -270,6 +225,76 @@ class _Vacio extends StatelessWidget {
           SizedBox(height: 8),
           Text('No hay tareas que mostrar'),
         ],
+      ),
+    );
+  }
+}
+
+@NowaGenerated()
+class _HomePageState extends State<HomePage> {
+  TextEditingController text = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Mis entregas')),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => context.push('/anadir'),
+        icon: const Icon(Icons.add),
+        label: const Text('Nueva tarea'),
+      ),
+      body: ListenableBuilder(
+        listenable: tareasState,
+        builder: (context, _) {
+          final tareas = tareasState.ocultarHechas
+              ? tareasState.conBusqueda.where((t) => !t.hecha).toList()
+              : tareasState.conBusqueda;
+          return Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 640),
+              child: Column(
+                children: [
+                  _Resumen(
+                    hechas: tareasState.hechas,
+                    total: tareasState.tareas.length,
+                  ),
+                  FlexSizedBox(
+                    width: 361.0,
+                    height: 48.0,
+                    child: TextField(
+                      onChanged: tareasState.setBusqueda,
+                      decoration: InputDecoration(
+                        hintText: 'Buscar tarea',
+                        prefixIcon: const Icon(Icons.search),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 12,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(28),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                      controller: text,
+                    ),
+                  ),
+                  _Filtros(ocultar: tareasState.ocultarHechas),
+                  Expanded(
+                    child: tareas.isEmpty
+                        ? const _Vacio()
+                        : ListView.builder(
+                            padding: const EdgeInsets.fromLTRB(16, 4, 16, 96),
+                            itemCount: tareas.length,
+                            itemBuilder: (context, i) =>
+                                _TareaCard(tarea: tareas[i]),
+                          ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

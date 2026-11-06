@@ -113,8 +113,10 @@ class DetallePage extends StatelessWidget {
 }
 
 /// Asignatura, fecha y estado de la tarea en forma de chips.
+@NowaGenerated()
 class _Datos extends StatelessWidget {
-  const _Datos({required this.tarea});
+  @NowaGenerated({'loader': 'auto-constructor'})
+  const _Datos({required this.tarea, super.key});
 
   final Tarea tarea;
 

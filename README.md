@@ -1,17 +1,23 @@
-# mis_entregas
+# Mis entregas
 
-A new Flutter project.
+(1-2 frases: qué es la app y para qué sirve.)
 
-## Getting Started
+## Qué hace
+- (lista de funciones: ver tareas, marcar como hecha, añadir, buscar, filtrar...)
 
-This project is a starting point for a Flutter application.
+## Cómo ejecutarla
+Versión web (sin instalar nada): https://skullbyte.github.io/Mis-Entregas/
 
-A few resources to get you started if this is your first Flutter project:
+En el ordenador:
+1. Instalar Flutter.
+2. `flutter pub get`
+3. `flutter run -d linux`
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## Estructura
+- `lib/pages/`: las tres pantallas.
+- `lib/models/`: la clase Tarea.
+- `lib/globals/`: el estado, el router y el tema.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Autores
+Jamie Tanner Rodríguez y Tamayo.
+

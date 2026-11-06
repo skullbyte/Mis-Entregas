@@ -246,7 +246,9 @@ class _HomePageState extends State<HomePage> {
       body: ListenableBuilder(
         listenable: tareasState,
         builder: (context, _) {
-          final tareas = tareasState.conBusqueda;
+          final tareas = tareasState.ocultarHechas
+            ? tareasState.conBusqueda.where((t) => !t.hecha).toList()
+            : tareasState.conBusqueda;
           return Center(
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 640),

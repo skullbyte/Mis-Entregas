@@ -70,7 +70,18 @@ class DetallePage extends StatelessWidget {
                               backgroundColor: t.hecha ? Colors.green : null,
                               minimumSize: const Size.fromHeight(52),
                             ),
-                            onPressed: () => tareasState.alternarHecha(t),
+                            onPressed: () {
+                              tareasState.alternarHecha(t);
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    t.hecha
+                                        ? 'Tarea marcada como hecha'
+                                        : 'Tarea marcada como pendiente',
+                                  ),
+                                ),
+                              );
+                            },
                             icon: Icon(t.hecha ? Icons.undo : Icons.check),
                             label: Text(
                               t.hecha

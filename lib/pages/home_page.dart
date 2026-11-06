@@ -200,7 +200,8 @@ class _TareaCard extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 6),
-                      Row(
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
                         children: [
                           _Etiqueta(texto: a.codigo, color: a.color),
                           const SizedBox(width: 8),

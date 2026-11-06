@@ -61,6 +61,7 @@ class _AnadirPageState extends State<AnadirPage> {
           constraints: const BoxConstraints(maxWidth: 640),
           child: Form(
             key: _formulario,
+            autovalidateMode: AutovalidateMode.onUserInteraction,
             child: ListView(
               padding: const EdgeInsets.all(20),
               children: [

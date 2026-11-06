@@ -112,7 +112,7 @@ class _TareaCard extends StatelessWidget {
       ),
       onDismissed: (_) {
         final posicion = tareasState.eliminar(tarea);
-        ScaffoldMessenger.of(context).showSnackBar(
+        ScaffoldMessenger.of(context)..hideCurrentSnackBar()..showSnackBar(
           SnackBar(
             content: const Text('Tarea eliminada'),
             action: SnackBarAction(
@@ -258,10 +258,11 @@ class _HomePageState extends State<HomePage> {
                     hechas: tareasState.hechas,
                     total: tareasState.tareas.length,
                   ),
-                  FlexSizedBox(
-                    width: 361.0,
-                    height: 48.0,
-                    child: TextField(
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: SizedBox(
+                      height: 48.0,
+                      child: TextField(
                       onChanged: tareasState.setBusqueda,
                       decoration: InputDecoration(
                         hintText: 'Buscar tarea',
@@ -277,6 +278,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       controller: text,
+                    ),
                     ),
                   ),
                   _Filtros(ocultar: tareasState.ocultarHechas),
